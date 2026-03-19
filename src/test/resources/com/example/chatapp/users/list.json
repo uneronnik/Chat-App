@@ -1,5 +1,5 @@
 [
-  {"id": 1, "username": "nikita", "email": "nikita@example.com", "password": "123"},
-  {"id": 2, "username": "tanya", "email": "tanya@example.com", "password": "qwerty"},
-  {"id": 3, "username": "alya", "email": "alya@example.com", "password": "zxc"}
+  {"id": 1, "username": "nikita", "email": "nikita@example.com"},
+  {"id": 2, "username": "tanya", "email": "tanya@example.com"},
+  {"id": 3, "username": "alya", "email": "alya@example.com"}
 ]

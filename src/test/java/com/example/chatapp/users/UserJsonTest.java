@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.json.JsonContent;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 @JsonTest
+@ActiveProfiles("test")
 public class UserJsonTest {
     @Autowired
     private JacksonTester<User> json;
@@ -65,20 +67,20 @@ public class UserJsonTest {
         assertThat(json.parseObject(content).getEmail()).isEqualTo("nikita@example.com");
     }
 
-//    @Test
-//    void userListSerializationTest() throws IOException {
-//        assertThat(jsonList.write(users)).isStrictlyEqualToJson("list.json");
-//    }
-//
-//    @Test
-//    void userListDeserializationTest() throws IOException {
-//        String expected = """
-//            [
-//                {"id": 1, "username": "nikita", "email": "nikita@example.com"},
-//                {"id": 2, "username": "tanya", "email": "tanya@example.com"},
-//                {"id": 3, "username": "alya", "email": "alya@example.com"}
-//            ]
-//            """;
-//        assertThat(jsonList.parse(expected)).isEqualTo(users);
-//    }
+    @Test
+    void userListSerializationTest() throws IOException {
+        assertThat(jsonList.write(users)).isStrictlyEqualToJson("list.json");
+    }
+
+    @Test
+    void userListDeserializationTest() throws IOException {
+        String expected = """
+            [
+                {"id": 1, "username": "nikita", "email": "nikita@example.com"},
+                {"id": 2, "username": "tanya", "email": "tanya@example.com"},
+                {"id": 3, "username": "alya", "email": "alya@example.com"}
+            ]
+            """;
+        assertThat(jsonList.parse(expected)).isEqualTo(users);
+    }
 }
