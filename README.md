@@ -9,7 +9,6 @@ Backend мессенджера с поддержкой real-time обмена с
 - Spring Security (сессионная аутентификация)
 - Spring Data JPA + Hibernate
 - Spring Session + Redis
-- WebSocket
 - PostgreSQL
 - H2 (тестовый профиль)
 - OpenAPI 3.0 / Swagger UI
@@ -23,7 +22,7 @@ Backend мессенджера с поддержкой real-time обмена с
 
 ## Запуск
 ```bash
-git clone https://github.com/your-username/Chat-App.git
+git clone https://github.com/uneronnik/Chat-App.git
 cd Chat-App
 ```
 
