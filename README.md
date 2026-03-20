@@ -44,7 +44,7 @@ redis-server
 ./gradlew bootRun
 ```
 
-Приложение будет доступно на `http://localhost:8080`.
+Приложение будет доступно на `http://localhost:8080/swagger-ui.html`.
 
 ## API
 
