@@ -1,66 +1,66 @@
 # Chat-App
 
-Backend мессенджера с REST API для обмена сообщениями между пользователями
+Messenger backend with REST API for exchanging messages between users
 
-## Стек
+## Stack
 
 - Java 17
 - Spring Boot 4.0.3
-- Spring Security (сессионная аутентификация)
+- Spring Security (session-based authentication)
 - Spring Data JPA + Hibernate
 - Spring Session + Redis
 - PostgreSQL
-- H2 (тестовый профиль)
+- H2 (test profile)
 - OpenAPI 3.0 / Swagger UI
 - Gradle
 
-## Требования
+## Requirements
 
 - JDK 17+
 - PostgreSQL
 - Redis
 
-## Запуск
+## Getting Started
 ```bash
 git clone https://github.com/uneronnik/Chat-App.git
 cd Chat-App
 ```
 
-Настроить подключение к БД в `src/main/resources/application.properties`:
+Configure the database connection in `src/main/resources/application.properties`:
 ```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/chatapp
 spring.datasource.username=your_user
 spring.datasource.password=your_password
 ```
 
-Запустить Redis:
+Start Redis:
 ```bash
 redis-server
 ```
 
-Запустить приложение:
+Run the application:
 ```bash
 ./gradlew bootRun
 ```
 
-Приложение будет доступно на `http://localhost:8080/swagger-ui.html`.
+The app will be available at `http://localhost:8080/swagger-ui.html`.
 
 ## API
 
-| Метод  | Путь                       | Описание                                   | Авторизация |
-|--------|----------------------------|--------------------------------------------|-------------|
-| POST   | `/auth/register`           | Регистрация нового пользователя            | Нет         |
-| POST   | `/auth/login`              | Вход (создание сессии)                     | Нет         |
-| POST   | `/auth/logout`             | Выход (инвалидация сессии)                 | Да          |
-| POST   | `/messages/{username}`     | Отправить сообщение пользователю           | Да          |
-| GET    | `/messages/{username}`     | Получить историю переписки с пользователем | Да          |
-| GET    | `/messages`                | Получить список всех собеседников          | Да          |
+| Method | Path                       | Description                                | Auth     |
+|--------|----------------------------|--------------------------------------------|----------|
+| POST   | `/auth/register`           | Register a new user                        | No       |
+| POST   | `/auth/login`              | Log in (create session)                    | No       |
+| POST   | `/auth/logout`             | Log out (invalidate session)               | Yes      |
+| POST   | `/messages/{username}`     | Send a message to a user                   | Yes      |
+| GET    | `/messages/{username}`     | Get conversation history with a user       | Yes      |
+| GET    | `/messages`                | Get a list of all conversations            | Yes      |
 
 Swagger UI: `http://localhost:8080/swagger-ui.html`
 
-## Тесты
+## Tests
 ```bash
 ./gradlew test
 ```
 
-Тесты используют H2 in-memory базу и не требуют PostgreSQL или Redis.
+Tests use an H2 in-memory database and do not require PostgreSQL or Redis.
